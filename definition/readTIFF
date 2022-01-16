@@ -1,0 +1,18 @@
+# author: Yuan Yuan
+
+# 获取图像的行列数、投影信息、栅格数据
+def readtif(filepath):
+    dataset = gdal.Open(filepath)
+    # 栅格矩阵的列数
+    im_width = dataset.RasterXSize
+    # 栅格矩阵的行数
+    im_height = dataset.RasterYSize
+    # 获取影像投影转换信息
+    im_geotrans = dataset.GetGeoTransform()
+    # 获取地图投影（空间参照系统）信息
+    im_proj = dataset.GetProjection()
+    # 获取栅格数据（数组形式）
+    im_data = dataset.ReadAsArray()
+    del dataset
+    # [0]列数 [1]行数 [2]投影转换信息 [3]地图投影信息 [4]栅格数据
+    return [im_width, im_height, im_geotrans, im_proj, im_data]
