@@ -1,4 +1,4 @@
-# author: Yuan Yuan
+# author: Yuan Y
 
 # 获取图像的行列数、投影信息、栅格数据
 def readtif(filepath):
