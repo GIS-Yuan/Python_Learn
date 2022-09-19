@@ -1,1 +1,0 @@
-virtualenv [环境名]  --no-site-packages # pip装包
